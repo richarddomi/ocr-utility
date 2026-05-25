@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR Utility</title>
+</head>
+<body>
+    <h1>OCR Utility</h1>
+
+    <p>Upload an image receipt and extract text using Tesseract OCR.</p>
+
+    <p><strong>Supported:</strong> {{ supported_extensions }}</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="receipt" required>
+        <button type="submit">Extract Text</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+
+    {% if uploaded_filename %}
+        <h2>Uploaded File</h2>
+        <p>{{ uploaded_filename }}</p>
+    {% endif %}
+
+    {% if extracted_text %}
+        <h2>Extracted Text</h2>
+        <pre>{{ extracted_text }}</pre>
+    {% endif %}
+</body>
+</html>
