@@ -1,27 +1,35 @@
 # OCR Utility
 
-A Python-based OCR utility for extracting text from images using Tesseract OCR.
+A Python-based OCR utility for extracting text from images and PDFs using Tesseract OCR.
 
-This project is being built as a practical software engineering project to process images, extract text, and eventually export structured data for analysis.
+This project is being built as a practical software engineering project for document ingestion, OCR text extraction, receipt parsing, and structured data storage.
 
 ## Current Status
 
-Working proof of concept:
+Implemented features:
 
-- Python virtual environment created
-- Tesseract OCR installed and connected
-- `pytesseract` successfully extracts text from an image
-- Basic project structure created
-- Git/GitHub workflow initialized
+- Python virtual environment setup
+- Tesseract OCR integration
+- Image OCR using `pytesseract`
+- PDF text extraction and OCR fallback using PyMuPDF
+- Flask single-page upload interface
+- Image preprocessing support with OpenCV
+- Debug image output for preprocessing experiments
+- Receipt field parsing
+- SQLite database storage
+- Git/GitHub workflow
 
 ## Tech Stack
 
 - Python
+- Flask
 - Tesseract OCR
 - pytesseract
 - Pillow
 - OpenCV
+- PyMuPDF
 - pandas
+- SQLite
 - Git/GitHub
 
 ## Project Structure
@@ -32,12 +40,21 @@ ocr-utility/
 ├── requirements.txt
 ├── pyproject.toml
 ├── .gitignore
-├── test_ocr.py
 ├── src/
 │   └── ocr_utility/
+│       ├── app.py
+│       ├── main.py
+│       ├── ocr.py
+│       ├── pdf.py
+│       ├── preprocessing.py
+│       ├── parser.py
+│       ├── database.py
+│       └── templates/
+│           └── index.html
 ├── tests/
 ├── data/
 │   ├── input/
 │   ├── output/
-│   └── samples/
+│   ├── debug/
+│   └── receipts.db
 └── docs/
