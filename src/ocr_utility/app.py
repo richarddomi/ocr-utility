@@ -6,6 +6,9 @@ from werkzeug.utils import secure_filename
 from ocr import extract_text_from_image
 from pdf import extract_text_from_pdf
 
+from database import save_receipt
+from parser import parse_receipt_text
+
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
@@ -88,6 +91,9 @@ def index():
                     extracted_text,
                     encoding="utf-8",
                 )
+
+                parsed_receipt = parse_receipt_text(extracted_text)
+                save_receipt(safe_filename, parsed_receipt)
 
                 uploaded_filename = safe_filename
 

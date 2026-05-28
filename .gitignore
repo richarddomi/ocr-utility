@@ -1,8 +1,19 @@
 @"
+# Python
 .venv/
 __pycache__/
 *.pyc
+
+# Data files
 data/input/
 data/output/
+data/debug/
+
+# Database 
+*.db
+*.sqlite3
+
+# Environment variables
 .env
+
 "@ | Out-File -Encoding utf8 .gitignore
